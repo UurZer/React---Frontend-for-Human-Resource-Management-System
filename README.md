@@ -1,6 +1,6 @@
 
 
-![Image of Yaktocat](Public/Uml-Component-Diagram.jpg)
+![Image of Yaktocat](master/public/Uml-Component-Diagram.jpg)
 
 # Getting Started with Create React App
 
