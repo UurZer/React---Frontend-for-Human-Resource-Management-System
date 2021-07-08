@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-
+import Cities from "../../layouts/Cities";
+import JobTitles from "../../layouts/JobTitles.jsx";
 import { Grid, Card, Image, Button } from "semantic-ui-react";
-import JobAdvertisementService from "../services/jobAdvertisementService";
+import JobAdvertisementService from "../../services/jobAdvertisementService";
 
 export default function JobAdvertisementList() {
   const [jobAdvertisements, setJobAdvertisements] = useState([]);
@@ -11,17 +12,33 @@ export default function JobAdvertisementList() {
     jobAdvertisementService
       .getJobAdvertisements()
       .then((result) => setJobAdvertisements(result.data.data));
-  });
+  }, []);
   return (
     <div>
       <Grid>
         <Grid.Row>
+          <Grid.Column width={6}>
+            <div className="search-area">
+              <JobTitles />
+            </div>
+          </Grid.Column>
+          <Grid.Column width={6}>
+            <div className="search-area">
+              <Cities />
+            </div>
+          </Grid.Column>
+          <Grid.Column width={4}>
+            <div className="search-area">
+              <Button primary>Primary</Button>
+            </div>
+          </Grid.Column>
           <Grid.Column width={8}>
             <Card.Group>
               {jobAdvertisements.map((jobAdvertisement) => (
                 <Card>
                   <Card.Content key={jobAdvertisement.id}>
-                    <Image float="right"
+                    <Image
+                      float="right"
                       size="mini"
                       src="https://react.semantic-ui.com/images/avatar/large/steve.jpg"
                     />
