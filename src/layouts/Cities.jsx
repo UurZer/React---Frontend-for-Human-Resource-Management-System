@@ -17,7 +17,6 @@ export default function Cities() {
         {
           cities.map((city)=>(
             <option value={city.name}>{city.name}</option>
-
           ))
         }
       </datalist>
