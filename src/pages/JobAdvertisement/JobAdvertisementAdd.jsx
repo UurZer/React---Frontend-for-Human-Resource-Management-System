@@ -1,26 +1,41 @@
-import { Formik,Form } from "formik";
+import { Formik, Form } from "formik";
 import React from "react";
 import * as Yup from "yup";
 import { useToasts } from "react-toast-notifications";
 import JobAdvertisementService from "../../services/jobAdvertisementService";
 import HrmsInput from "../../utilities/customFormControls/HrmsInput";
 import { useSelector } from "react-redux";
-import {Button} from "semantic-ui-react"
+import { Button } from "semantic-ui-react";
 export default function JobAdvertisementAdd() {
   const { addToast } = useToasts();
 
-  const {cities,errorCities, pendingCities } =useSelector((state)=> state.getAllCities)
-  const {jobTitles,errorjobTitles, pendingjobTitles } =useSelector((state)=> state.getAlljobTitles)
+  const { cities, errorCities, pendingCities } = useSelector(
+    (state) => state.getAllCities
+  );
+  const { jobTitles, errorjobTitles, pendingjobTitles } = useSelector(
+    (state) => state.getAlljobTitles
+  );
+  const { salaryScales, errorSalaryScales, pendingSalaryScales } = useSelector(
+    (state) => state.getAllSalaryScales
+  );
 
   const initialValues = {
-    applicationDeadline: "",
+    applicationDeadline: "2021-06-29",
+    employer: {
+      "employerId": 1,
+      "companyName": "Ozer",
+      "webSite": "https://www.pemavor.com",
+      "email": "mehmet@pemavor.com",
+      "phoneNumber": "58383893",
+      "password": "1234"
+    },
     city: "",
     jobTitle: "",
     jobDescription: "",
     salaryScale: "",
     numberOfOpenPositions: 1,
     wayOfWorking: "",
-    workingTime: "",
+    workingTime: "yarı Zamanlı",
     isVerified: false,
   };
   const schema = Yup.object({
@@ -44,13 +59,17 @@ export default function JobAdvertisementAdd() {
           console.log(values);
           let jobAdvertisementService = new JobAdvertisementService();
           values.city = JSON.parse(values.city);
-
-          jobAdvertisementService.addJobAdvertisements(values).then((result) => {
-            addToast(result.data.message, {
-              appearance: result.data.success ? "success" : "error",
-              autoDismiss: true,
+          values.jobTitle = JSON.parse(values.jobTitle);
+          values.salaryScale = JSON.parse(values.salaryScale);
+          
+          jobAdvertisementService
+            .addJobAdvertisements(values)
+            .then((result) => {
+              addToast(result.data.message, {
+                appearance: result.data.success ? "success" : "error",
+                autoDismiss: true,
+              });
             });
-          });
         }}
         handleChange={(change) => console.log(change)}
       >
@@ -63,30 +82,26 @@ export default function JobAdvertisementAdd() {
                 name="wayOfWorking"
                 placeholder="Çalışma Yolu"
               >
-                 <option value="" disabled hidden>
+                <option value="" disabled hidden>
                   Seçiniz
                 </option>
-                <option value="Remote">
-                  Uzaktan
-                </option>
-                <option value="Hybrid" >
-                  Hibrit
-                </option>
+                <option value="Remote">Uzaktan</option>
+                <option value="Hybrid">Hibrit</option>
               </HrmsInput>
             </div>
 
             <div>
               <HrmsInput as="select" name="jobTitle">
                 <option value="" disabled hidden>
-                  Şehir Seçiniz
+                  İş başlığı
                 </option>
 
-                {cities.map((city) => (
+                {jobTitles.map((jobTitle) => (
                   <option
-                    key={city.id}
-                    value={JSON.stringify(city)}
+                    key={jobTitle.titleId}
+                    value={JSON.stringify(jobTitle)}
                   >
-                    {city.name}
+                    {jobTitle.title}
                   </option>
                 ))}
               </HrmsInput>
@@ -99,15 +114,38 @@ export default function JobAdvertisementAdd() {
                 </option>
 
                 {cities.map((city) => (
-                  <option
-                    key={city.id}
-                    value={JSON.stringify(city)}
-                  >
+                  <option key={city.id} value={JSON.stringify(city)}>
                     {city.name}
                   </option>
                 ))}
               </HrmsInput>
             </div>
+            <div>
+              <HrmsInput
+                as="textarea"
+                label="Açıklama;"
+                name="jobDescription"
+                placeholder="Açıklama"
+              />
+            </div>
+
+            <div>
+              <HrmsInput  as="select" name="salaryScale">
+                <option value="" disabled hidden>
+                  Ücret ortalaması
+                </option>
+
+                {salaryScales.map((salaryScale) => (
+                  <option
+                    key={salaryScale.scaleId}
+                    value={JSON.stringify(salaryScale)}
+                  >
+                    {salaryScale.min +" - " + salaryScale.max}
+                  </option>
+                ))}
+              </HrmsInput>
+            </div>
+
             <Button
               type="submit"
               className="btn btn-main mt-3 btn-block text-light"

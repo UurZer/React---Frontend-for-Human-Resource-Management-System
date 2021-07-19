@@ -10,7 +10,7 @@ export default function JobAdvertisementList() {
   useEffect(() => {
     let jobAdvertisementService = new JobAdvertisementService();
     jobAdvertisementService
-      .getJobAdvertisements()
+      .getJobAdvertisements(true)
       .then((result) => setJobAdvertisements(result.data.data));
   }, []);
   return (
@@ -35,7 +35,9 @@ export default function JobAdvertisementList() {
           <Grid.Column width={8}>
             <Card.Group>
               {jobAdvertisements.map((jobAdvertisement) => (
+                
                 <Card>
+                  {console.log(jobAdvertisement.verified)}
                   <Card.Content key={jobAdvertisement.id}>
                     <Image
                       float="right"
@@ -45,6 +47,7 @@ export default function JobAdvertisementList() {
                     <Card.Header>{jobAdvertisement.jobTitle.title}</Card.Header>
                     <Card.Meta>
                       {jobAdvertisement.employer.companyName}
+                      
                     </Card.Meta>
                     <Card.Description>
                       {jobAdvertisement.jobDescription}{" "}
