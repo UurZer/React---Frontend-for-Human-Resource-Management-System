@@ -4,7 +4,7 @@ import { Button, Container, Menu } from "semantic-ui-react";
 export default function Navi() {
   return (
     <div>
-      <Menu size="max">
+      <Menu >
         <Container>
         <Menu.Item  name="home">
         <Link  to="/">Home</Link>
