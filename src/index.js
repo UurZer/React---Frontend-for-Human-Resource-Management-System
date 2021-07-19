@@ -6,11 +6,13 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { ToastProvider } from "react-toast-notifications";
-import { _fetchCities } from "./store/actions/cityActions";
 import { configureStore } from "./store/reducers/configureStore";
+import { _fetchCities } from "./store/actions/cityActions";
+import { _fetchJobTitles } from "./store/actions/jobTitleActions";
+import { _fetchSalaryScales } from "./store/actions/salaryScaleActions";
 
 const store = configureStore();
-const _init = [_fetchCities()];
+const _init = [_fetchCities(), _fetchJobTitles(), _fetchSalaryScales()];
 
 _init.map((func) => {
   return store.dispatch(func);
