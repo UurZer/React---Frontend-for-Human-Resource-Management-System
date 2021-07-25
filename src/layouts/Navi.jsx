@@ -13,6 +13,9 @@ export default function Navi() {
           <Menu.Item>
           <Link  to="/JobAdvertisementAdd">Employer SignIn</Link>
           </Menu.Item>
+          <Menu.Item>
+          <Link  to="/Home">Employer</Link>
+          </Menu.Item>
           <Menu.Menu position="right">
       
 

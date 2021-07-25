@@ -3,6 +3,7 @@ import Cities from "../../layouts/Cities";
 import JobTitles from "../../layouts/JobTitles.jsx";
 import { Grid, Card, Image, Button } from "semantic-ui-react";
 import JobAdvertisementService from "../../services/jobAdvertisementService";
+import { Link } from "react-router-dom";
 
 export default function JobAdvertisementList() {
   const [jobAdvertisements, setJobAdvertisements] = useState([]);
@@ -10,7 +11,7 @@ export default function JobAdvertisementList() {
   useEffect(() => {
     let jobAdvertisementService = new JobAdvertisementService();
     jobAdvertisementService
-      .getJobAdvertisements(true)
+      .getVerifiedJobAdvertisements()
       .then((result) => setJobAdvertisements(result.data.data));
   }, []);
   return (
@@ -32,12 +33,11 @@ export default function JobAdvertisementList() {
               <Button primary>Primary</Button>
             </div>
           </Grid.Column>
-          <Grid.Column width={8}>
+          <Grid.Column width={16}>
             <Card.Group>
               {jobAdvertisements.map((jobAdvertisement) => (
-                
                 <Card>
-                  {console.log(jobAdvertisement.verified)}
+                  <Link to={`/JobAdvertisement/${jobAdvertisement.id}`}>
                   <Card.Content key={jobAdvertisement.id}>
                     <Image
                       float="right"
@@ -47,7 +47,6 @@ export default function JobAdvertisementList() {
                     <Card.Header>{jobAdvertisement.jobTitle.title}</Card.Header>
                     <Card.Meta>
                       {jobAdvertisement.employer.companyName}
-                      
                     </Card.Meta>
                     <Card.Description>
                       {jobAdvertisement.jobDescription}{" "}
@@ -64,11 +63,11 @@ export default function JobAdvertisementList() {
                       </Button>
                     </div>
                   </Card.Content>
+                  </Link>
                 </Card>
               ))}
             </Card.Group>
           </Grid.Column>
-          <Grid.Column width={10}></Grid.Column>
         </Grid.Row>
       </Grid>
     </div>
