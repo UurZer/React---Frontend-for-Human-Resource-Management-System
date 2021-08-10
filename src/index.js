@@ -10,9 +10,10 @@ import { configureStore } from "./store/reducers/configureStore";
 import { _fetchCities } from "./store/actions/cityActions";
 import { _fetchJobTitles } from "./store/actions/jobTitleActions";
 import { _fetchSalaryScales } from "./store/actions/salaryScaleActions";
+import { _fetchAdvertisements } from "./store/actions/jobAdvertisementActions";
 
 const store = configureStore();
-const _init = [_fetchCities(), _fetchJobTitles(), _fetchSalaryScales()];
+const _init = [_fetchCities(), _fetchJobTitles(), _fetchSalaryScales(),_fetchAdvertisements()];
 
 _init.map((func) => {
   return store.dispatch(func);
