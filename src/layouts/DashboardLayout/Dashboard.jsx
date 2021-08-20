@@ -4,6 +4,7 @@ import { Route } from "react-router-dom";
 import JobAdvertisementAdd from "../AddJobAdvertisementLayout/JobAdvertisementAdd";
 import AdvertisementDetailPage from "../../pages/AdvertisementDetailPage/AdvertisementDetailPage";
 import RegisterSeekerPage from "../../pages/RegisterSeekerPage/RegisterSeekerPage";
+import ProfilePage from "../../pages/LoggedInSeeker_/ProfilePage/ProfilePage";
 export default function Dashboard() {
   return (
     <div>
@@ -13,6 +14,7 @@ export default function Dashboard() {
             <Route exact path="/advertisement/:id" component={AdvertisementDetailPage} />
             <Route exact path="/employer/home" component={AdvertisementDetailPage} />
             <Route exact path="/register/seeker/" component={RegisterSeekerPage} />
+            <Route exact path="/profile" component={ProfilePage} />
     </div>  
   );
 }
