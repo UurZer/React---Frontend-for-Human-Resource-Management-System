@@ -11,12 +11,13 @@ export default class JobAdvertisementService {
   }
 
   addJobAdvertisements(advertisement) {
+
     let jobAdvertisement = axios.post(`${baseUrl}add`, advertisement);
     return jobAdvertisement;
   }
 
   getById(id) {
-    let jobAdvertisement = axios.get(`${baseUrl}getByAdvertisement_Id?advertisementId=${id}`);
+    let jobAdvertisement = axios.get(`${baseUrl}getById?id=${id}`);
     return jobAdvertisement;
   }
 }
