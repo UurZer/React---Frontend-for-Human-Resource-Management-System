@@ -1,0 +1,205 @@
+.resume-edit {
+  color: rgba(0, 0, 0, 0.87);
+  max-height: 1000000px;
+  box-sizing: unset;
+  cursor: pointer;
+  margin: 0 -30px;
+  padding: 25px 30px 0;
+}
+.resume-edit .box {
+  border-left: 1px solid #ddd;
+}
+
+.job-experience .row {
+  margin: 0 -0.78125%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  min-height: 50px;
+  width: auto;
+  font-size: 15px;
+}
+
+.job-experience .row .experience-logo {
+  float: left;
+  width: 15%;
+  margin-right: 30px;
+  text-align: center;
+  box-sizing: border-box !important;
+  transform: translate(0, 25%) !important;
+}
+
+.job-experience .row .experience-logo .firm-logo img {
+  cursor: pointer;
+  text-align: center;
+  border: 0;
+  max-height: 1000000px;
+  max-width: 100%;
+  font-style: italic;
+  border-style: none;
+  vertical-align: middle;
+  box-sizing: unset;
+  height: auto;
+}
+
+.job-experience .row .experience-info {
+  float: left;
+  width: calc(100% - 210px);
+  min-height: 170px;
+  box-sizing: border-box !important;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #ddd;
+}
+
+.job-experience .row .experience-info .row {
+  box-sizing: unset;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  min-height: auto !important;
+  width: auto;
+}
+
+.job-experience .row .experience-info .row .position {
+  display: inline;
+  float: left;
+  margin: 0 0.78125%;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-right: 0;
+  margin-left: 0;
+  box-sizing: border-box !important;
+}
+
+.job-experience .row .experience-info .row .position span {
+  display: block;
+}
+.job-experience .row .experience-info .row .fields {
+  display: inline;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0;
+  padding: 0 15px;
+  float: left;
+  box-sizing: border-box !important;
+}
+
+.job-experience .row .experience-info .row .fields .field-name {
+  display: block;
+  padding: 5px;
+  font-weight: 400;
+  opacity: 50%;
+}
+
+.job-experience .row .experience-info .row .fields .field-content {
+  display: block;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.education-information .box {
+  border-left: 1px solid #ddd;
+}
+
+.education-information .row {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 15px;
+}
+.education-information .row .education-logo {
+  float: left;
+  width: 15%;
+  margin-right: 30px;
+}
+
+.education-information .row .education-logo .firm-logo img {
+  border-style: none;
+  width: 50%;
+  transform: translate(50%, 25%);
+}
+
+.education-information .row .education-info {
+  float: left;
+  width: calc(100% - 210px);
+  box-sizing: border-box !important;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #ddd;
+}
+
+.education-information .row .education-info .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.education-information .row .education-info .row .fields {
+  display: block;
+}
+
+.education-information .row .education-info .row .fields .field-name {
+  display: block;
+  font-weight: 400;
+  opacity: 50%;
+}
+
+.education-information .row .education-info .row .fields .field-content {
+  display: block;
+  font-weight: bold;
+}
+
+.foreign-language .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.foreign-language .row .language-logo {
+  width: 15%;
+  float: left;
+}
+
+.foreign-language .row .language-info {
+  float: left;
+  width: calc(100% - 210px);
+  box-sizing: border-box !important;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #ddd;
+}
+
+.foreign-language .row .language-info .row {
+  display: flex;
+  margin:5px 5px;
+}
+.foreign-language .row .language-info .row .fields {
+  position: relative;
+  display: inline;
+  float: left;
+  font-size: 15px;
+}
+
+.foreign-language .row .language-info .row .fields .field-title {
+  font-weight: bold;
+  color:  rgb(253, 100, 11);
+}
+.foreign-language .row .language-info .row .fields .field-name {
+    font-weight: bold;
+    display: block;
+  }
+
+.foreign-language .row .language-info .row .fields .field-content {
+  font-weight: 550;
+  opacity: 60%;
+  display: block;
+}
+.foreign-language .row .language-info .row .fields .field-star {
+  color: rgb(241, 241, 25);
+}
+  
