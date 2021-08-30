@@ -334,33 +334,6 @@ export default function ProfilePage() {
 
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <i class="fa fa-leaf fa-fw"></i> Foreign Language:
-                </div>
-                <div class="panel-body">
-                  <div className="foreign-language view">
-                    {foreignLanguage?.map((language) => (
-                      <div className="row box">
-                        <div className="language-logo"></div>
-                        <div className="language-info">
-                          <div class="progress">
-                            <div
-                              class="progress-bar color-1"
-                              role="progressbar"
-                              
-                              aria-valuenow="80"
-                              aria-valuemin="0"
-                              aria-valuemax="100"
-                            ></div>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div class="panel panel-default">
-                <div class="panel-heading">
                   <i class="fa fa-cog fa-fw"></i> Skills
                 </div>
                 <div class="panel-body">
@@ -369,12 +342,10 @@ export default function ProfilePage() {
                     includes the User Interface, the animations, and usually a
                     bunch of logic to talk to the backend.
                   </p>
-                  <span class="service-tag">Web Design</span>
-                  <span class="service-tag">Graphics</span>
-                  <span class="service-tag">Development</span>
-                  <span class="service-tag">App design</span>
-                  <span class="service-tag">IOS Apps</span>
-                  <span class="service-tag">CMS Development</span>
+				  {programmingSkill?.map((skill)=>(
+					  <span class="service-tag">{skill.skillName}</span>
+					))}
+                  
                 </div>
               </div>
             </div>

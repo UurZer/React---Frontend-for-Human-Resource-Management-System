@@ -1,16 +1,9 @@
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import Filters from "../../layouts/FiltersLayout/Filters";
 import Advertisement from "../../layouts/AdvertisementLayout/Advertisement";
-import CreateAccountBanner from "../../layouts/CreateAccountBannerLayout/CreateAccountBanner";
-import Banner from "../../layouts/BannerLayout/Banner";
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import PreloaderUtil from "../../utilities/preLoaderUtil/PreLoader";
-import ErrorAlert from "../../utilities/ErrorUtil/ErrorAlert";
 import "./HomePage.css";
-
+import HrmsInput from "../../utilities/customFormControls/HrmsInput";
+import Filters from "../../layouts/FiltersLayout/Filters";
 export default function Home() {
   // const [advertisements, setAdvertisements] = useState([]);
   // useEffect(() => {
@@ -28,61 +21,61 @@ export default function Home() {
 
   return (
     <div>
-      <Banner />
-      <div className="container">
-        <div className="row my-5">
-          <div className="col-lg-3 d-none d-lg-block">
-            <strong>
-              <h4 className="font-weight-bold primary-color-text">Filtreler</h4>
-            </strong>
-            <Filters />
-          </div>
-          <div className="col-lg-9">
-            <strong>
-              <h4 className="font-weight-bold primary-color-text">İlanlar</h4>
-            </strong>
-
-            <div className="advertisements">
-              {pending ? (
-                <PreloaderUtil className="mb-5" />
-              ) : error ? (
-                <ErrorAlert error={error} />
-              ) : (
-                <ul className="component--job-items">
-                  {advertisements.map((advertisement) => (
-                    <Advertisement
-                      key={advertisement.id}
-                      advertisement={advertisement}
-                    />
-                  ))}
-                </ul>
-              )}
-
-              <div className="d-flex justify-content-center">
-                <Link
-                  to="/advertisements"
-                  className="shadow component--job-button"
-                >
-                  <span className="mr-3">Tüm İlanları Gör</span>{" "}
-                  <FontAwesomeIcon icon={faArrowRight} />
-                </Link>
+      <div className="job-listing-area pt-120 pb-120">
+        <div className="container">
+          <div className="row">
+            <div className="col-xl-3 col-lg-3 col-md-4">
+              <div className="row">
+                <div className="col-12">
+                  <div className="small-section-tittle2 mb-45">
+                    <div className="ion">
+                      {" "}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20px"
+                        height="12px"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          fill="rgb(27, 207, 107)"
+                          d="M7.778,12.000 L12.222,12.000 L12.222,10.000 L7.778,10.000 L7.778,12.000 ZM-0.000,-0.000 L-0.000,2.000 L20.000,2.000 L20.000,-0.000 L-0.000,-0.000 ZM3.333,7.000 L16.667,7.000 L16.667,5.000 L3.333,5.000 L3.333,7.000 Z"
+                        />
+                      </svg>
+                    </div>
+                    <h4>Filter Jobs</h4>
+                  </div>
+                </div>
+              </div>
+              <Filters/>
+            </div>
+            <div class="col-xl-9 col-lg-9 col-md-8">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="count-job mb-35">
+                      <span>39, 782 Jobs found</span>
+                      <div class="select-job-items">
+                        <span>Sort by</span>
+                        <select name="select">
+                          <option value="">En Yeni</option>
+                          <option value="">job list</option>
+                          <option value="">job list</option>
+                          <option value="">job list</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {advertisements.map((advertisement) => (
+                  <Advertisement
+                    key={advertisement.id}
+                    advertisement={advertisement}
+                  />
+                ))}
               </div>
             </div>
           </div>
         </div>
-        <CreateAccountBanner />
-        {favoriteItems.length > 0 && (
-          <div className="favorites-popup">
-            <Link to="/favorites">
-              <button className="btn my-auto pb-0 px-1 btn-outline-danger">
-                <i className="fa my-auto h2 fa-heart"></i>
-                <small className="text-link text-light">
-                  {favoriteItems.length}
-                </small>
-              </button>
-            </Link>
-          </div>
-        )}
       </div>
     </div>
   );
