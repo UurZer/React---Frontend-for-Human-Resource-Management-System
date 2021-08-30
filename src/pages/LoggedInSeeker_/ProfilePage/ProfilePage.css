@@ -202,4 +202,13 @@
 .foreign-language .row .language-info .row .fields .field-star {
   color: rgb(241, 241, 25);
 }
+.foreign-language .row .language-info .row .fields .field-star {
+    color: rgb(241, 241, 25);
+  }
+
+.programming-skill .row .skill-info .progress-bar{
+    width: 50%;
+    background-color: rgb(241, 241, 25);
+}
+
   
